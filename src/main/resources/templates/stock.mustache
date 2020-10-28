@@ -1,0 +1,49 @@
+{{>layout/header}}
+
+<div class="container">
+    <!-- 스위치, 무선 AP, 기타 버튼 -->
+
+    <div style="display:none">
+        <input id="company" value="{{company}}">
+    </div>
+
+    <button type="button" class="btn btn-outline-dark" id="btn-classification" value="ALL">전체 항목</button>
+    <button type="button" class="btn btn-outline-primary" id="btn-classification" value="switch">스위치</button>
+    <button type="button" class="btn btn-outline-secondary" id="btn-classification" value="wirelessAP">무선 AP</button>
+    <button type="button" class="btn btn-outline-success" id="btn-classification" value="etc">기타</button>
+
+    </br>
+    </br>
+
+    <!-- 모델명, 원가, 사이트, 품의번호, 사용자, 납품처, 비고 -->
+    <table class="table table-hover" id="stockList">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">번호</th>
+            <th scope="col">모델명</th> <!-- ex) WS-C2960L-24TS-AP -->
+            <th scope="col">원가</th> <!-- ex) 10000000 -->
+            <th scope="col">사이트</th> <!-- ex) 용인송담대학교 -->
+            <th scope="col">품의번호</th> <!-- ex) C20-000 -->
+            <th scope="col">사용자</th> <!-- ex) 황준호 -->
+            <th scope="col">납품처</th> <!-- ex) 용인송담대학교 -->
+            <!-- <th scope="col">비고</th>  ex) 눌렀을 때 나오도록 -->
+        </tr>
+        </thead>
+        <tbody>
+        {{#stockList}}
+            <tr>
+                <th scope="row">{{id}}</th>
+                <td>{{modelName}}</td>
+                <td>{{price}}</td>
+                <td>{{site}}</td>
+                <td>{{itemNumber}}</td>
+                <td>{{user}}</td>
+                <td>{{vendor}}</td>
+            </tr>
+        {{/stockList}}
+    </table>
+
+</div>
+
+
+{{>layout/footer}}

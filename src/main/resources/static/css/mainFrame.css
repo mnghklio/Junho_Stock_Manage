@@ -1,0 +1,23 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+.mainFrame-background{
+    background-image: url('/images/mainbg.png');
+    background-repeat : no-repeat;
+    background-size : cover;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 100px 0px;
+    transition: all .15s ease-in-out;
+    overflow: auto;
+}
+input {
+    width: 100%;
+    box-sizing: border-box;
+}
+select {
+    width: 100%;
+    box-sizing: border-box;
+}

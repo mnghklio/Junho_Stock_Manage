@@ -1,0 +1,81 @@
+{{>layout/header}}
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">발주처</th> <!-- ex) WS-C2960L-24TS-AP -->
+            <th scope="col">장비 종류</th> <!-- ex) 10000000 -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <select id="client">
+                    <option value="">발주처 선택</option>
+                    <option value="CISCO">CISCO</option>
+                    <option value="ARUBA">ARUBA</option>
+                    <option value="etc">etc</option>
+                </select>
+            </td>
+            <td>
+                <select id="classification">
+                    <option value="">장비 종류 선택</option>
+                    <option value="스위치">스위치</option>
+                    <option value="무선 AP">무선 AP</option>
+                    <option value="etc">etc</option>
+                </select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    </br>
+    </br>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">모델명</th> <!-- ex) WS-C2960L-24TS-AP -->
+            <th scope="col">원가</th> <!-- ex) 10000000 -->
+            <th scope="col">사이트</th> <!-- ex) 용인송담대학교 -->
+            <th scope="col">품의번호</th> <!-- ex) C20-000 -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td width="*"><input type="text" id="modelName"></td>
+            <td width="30%"><input type="text" id="price"></td>
+            <td width="30%"><input type="text" id="site"></td>
+            <td width="20%"><input type="text" id="itemNumber"></td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">납품처</th> <!-- ex) 황준호 -->
+            <th scope="col">사용자</th>
+            <th scope="col">공급처</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td width="*"><input type="text" id="supplyPrice"></td>
+            <td width="*"><input type="text" id="user"></td>
+            <td width="*"><input type="text" id="vendor"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <label for="exampleFormControlTextarea1">비고 (1500자 이하)</label>
+    <textarea class="form-control" id="memo" name="text" rows="10"
+              placeholder="내용 입력"></textarea>
+
+    <div align="right">
+        </br>
+        <button type="submit" class="btn btn-primary" id="btn-saveStock">저장</button>
+    </div>
+</div>
+
+{{>layout/footer}}

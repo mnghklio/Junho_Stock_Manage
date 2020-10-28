@@ -1,0 +1,30 @@
+{{>layout/noNavbarHeader}}
+
+<div class="wrapper fadeInDown" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="/images/woorinis.jpg" id="icon" alt="User Icon" />
+        </div>
+
+        <!-- Login Form -->
+        <form th:action="@{/user}" method="POST">
+            <input type="email" id="email" class="fadeIn second" placeholder="login">
+            <input type="password" id="password" class="fadeIn third" placeholder="password">
+            <input type="text" id="name" class="fadeIn third" placeholder="name">
+            <input type="text" id="auth" value="ROLE_USER" style="display:none">
+
+            <input type="submit" class="fadeIn fourth" value="SAVE" style="width:85%">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" href="/login">Login</a>
+        </div>
+
+    </div>
+</div>
+
+{{>layout/footer}}

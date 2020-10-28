@@ -1,0 +1,68 @@
+{{>layout/header}}
+
+<div class="container">
+    {{#stock}}
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">발주처</th> <!-- ex) WS-C2960L-24TS-AP -->
+                <th scope="col">장비 종류</th> <!-- ex) 10000000 -->
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{client}}</td>
+                <td>{{classification}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        </br>
+        </br>
+
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">모델명</th> <!-- ex) WS-C2960L-24TS-AP -->
+                <th scope="col">원가</th> <!-- ex) 10000000 -->
+                <th scope="col">사이트</th> <!-- ex) 용인송담대학교 -->
+                <th scope="col">품의번호</th> <!-- ex) C20-000 -->
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td width="*">{{modelName}}</td>
+                <td width="30%">{{supplyPrice}}</td>
+                <td width="30%">{{site}}</td>
+                <td width="20%">{{itemNumber}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">공급가</th> <!-- ex) 황준호 -->
+                <th scope="col">사용자</th>
+                <th scope="col">공급처</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td width="*">{{price}}</td>
+                <td width="*">{{user}}</td>
+                <td width="*">{{vendor}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <textarea class="form-control" id="memo" name="text" rows="10"
+                  placeholder="내용 입력" style="background-color:white" readonly>{{memo}}</textarea>
+
+        <div align="right">
+            </br>
+            <button type="submit" class="btn btn-dark" id="btn-stockModify">수정</button>
+        </div>
+    {{/stock}}
+</div>
+
+{{>layout/footer}}
