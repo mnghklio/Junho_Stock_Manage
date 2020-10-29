@@ -3,7 +3,7 @@ html, body {
     height: 100%;
 }
 .mainFrame-background{
-    background-image: url('/images/mainbg.png');
+    background-image: url('/images/mainbg.jpg');
     background-repeat : no-repeat;
     background-size : cover;
     width: 100%;
