@@ -2,13 +2,12 @@ package com.github.mnghklio.web.controller;
 
 import com.github.mnghklio.web.config.auth.LoginUser;
 import com.github.mnghklio.web.config.auth.dto.SessionUser;
+import com.github.mnghklio.web.dto.StockUpdateDto;
 import com.github.mnghklio.web.service.StockService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @Controller
@@ -18,7 +17,8 @@ public class StockController {
     private final StockService stockService;
 
     @GetMapping("/{company}/{classification}")
-    public String stockRead (@PathVariable("company") String company, @PathVariable("classification") String classification, Model model, @LoginUser SessionUser user) {
+    public String stockRead (@PathVariable("company") String company, @PathVariable("classification") String classification,
+                             Model model, @LoginUser SessionUser user) {
         switch (classification) {
             case "switch":
                 classification = "스위치";
@@ -56,5 +56,20 @@ public class StockController {
         model.addAttribute(this.stockService.read(id));
 
         return "readStock";
+    }
+
+    @GetMapping("/updateCheck")
+    public String updateCheck (@RequestParam("writeUser") String writeUser, @RequestParam("modifyUser") String modifyUser, @RequestParam("id") Long id, Model model, @LoginUser SessionUser user) {
+        if(!user.equals(writeUser)) {
+            return "redirect:/index";
+        }
+
+        if(user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+
+        model.addAttribute("stock", this.stockService.read(id));
+
+        return "updateStock";
     }
 }

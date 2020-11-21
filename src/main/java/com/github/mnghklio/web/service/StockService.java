@@ -4,6 +4,7 @@ import com.github.mnghklio.web.domain.stock.Stock;
 import com.github.mnghklio.web.domain.stock.StockRepository;
 import com.github.mnghklio.web.dto.StockDto;
 import com.github.mnghklio.web.dto.StockListDto;
+import com.github.mnghklio.web.dto.StockUpdateDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,8 +49,35 @@ public class StockService {
         return retList;
     }
 
+    @Transactional
+    public Long updateStock (StockUpdateDto stockUpdateDto) {
+        Stock stock = this.stockRepository.findById(stockUpdateDto.getId()).get();
+
+        stock.update(
+                stockUpdateDto.getClient(),
+                stockUpdateDto.getClassification(),
+                stockUpdateDto.getModelName(),
+                stockUpdateDto.getPrice(),
+                stockUpdateDto.getSupplyPrice(),
+                stockUpdateDto.getItemNumber(),
+                stockUpdateDto.getSite(),
+                stockUpdateDto.getUser(),
+                stockUpdateDto.getVendor(),
+                stockUpdateDto.getMemo()
+        );
+
+        return stock.getId();
+    }
+
     @Transactional(readOnly = true)
     public Stock read (Long id) {
         return this.stockRepository.findById(id).get();
+    }
+
+    @Transactional
+    public Long stockDelete (Long id) {
+        this.stockRepository.delete(this.stockRepository.findById(id).get());
+
+        return 1L;
     }
 }
