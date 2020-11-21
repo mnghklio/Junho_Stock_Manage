@@ -63,7 +63,7 @@
             <tbody>
             <tr>
                 <td width="*"><input type="text" id="supplyPrice" value="{{supplyPrice}}"></td>
-                <td width="*"><input type="text" id="user" value="{{userName}}" readonly></td>
+                <td width="*"><input type="text" id="user" value="{{user}}" readonly></td>
                 <td width="*"><input type="text" id="vendor" value="{{vendor}}"></td>
             </tr>
             </tbody>
@@ -73,10 +73,12 @@
         <textarea class="form-control" id="memo" name="text" rows="10"
                   placeholder="내용 입력">{{memo}}</textarea>
 
+        <input type="text" value="{{id}}" id="id" style="display:none">
+
         <div align="right">
             </br>
-            <button type="submit" class="btn btn-primary" id="btn-saveUpdate">저장</button>
-            <button type="submit" class="btn btn-warning" id="btn-deleteUpdate">삭제</button>
+            <button type="submit" class="btn btn-primary" id="btn-updateStock">저장</button>
+            <button type="submit" class="btn btn-warning" id="btn-deleteStock">삭제</button>
         </div>
     {{/stock}}
 </div>

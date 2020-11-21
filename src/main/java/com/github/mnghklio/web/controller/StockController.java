@@ -58,12 +58,8 @@ public class StockController {
         return "readStock";
     }
 
-    @GetMapping("/updateCheck")
-    public String updateCheck (@RequestParam("writeUser") String writeUser, @RequestParam("modifyUser") String modifyUser, @RequestParam("id") Long id, Model model, @LoginUser SessionUser user) {
-        if(!user.equals(writeUser)) {
-            return "redirect:/index";
-        }
-
+    @PostMapping("/update/{id}")
+    public String updateCheck (@PathVariable("id") Long id, Model model, @LoginUser SessionUser user) {
         if(user != null) {
             model.addAttribute("userName", user.getName());
         }

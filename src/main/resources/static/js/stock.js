@@ -63,21 +63,21 @@ var stock = {
         };
 
         $.ajax({
-            type: 'POST',
+            type: 'PUT',
             url: '/api/v1/stock/update',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function () {
-            alert('재고가 저장되었습니다.');
-            window.location.reload();
+            alert('재고가 수정되었습니다.');
+            window.location.href = '/';
         }).fail(function () {
             alert(JSON.stringify(error));
         });
     },
 
     deleteStock: function () {
-         var id: $('#id').val();
+         var id = $('#id').val();
 
          if(confirm("삭제 후 복구가 불가능 합니다. 삭제하시겠습니까?")) {
              $.ajax({
@@ -85,7 +85,6 @@ var stock = {
                  url: '/api/v1/stock/delete/' + id,
                  dataType: 'json',
                  contentType: 'application/json; charset=utf-8',
-                 data: JSON.stringify(data)
              }).done(function () {
                  alert('재고가 삭제되었습니다.');
                  window.location.href = '/';
